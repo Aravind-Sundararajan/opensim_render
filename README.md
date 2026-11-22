@@ -157,7 +157,7 @@ timeline = scene.build_timeline()
 
 ## License
 
-[To be specified]
+The Software is MIT licensed, See LICENSE for further details.
 
 ## Contributing
 
