@@ -1,0 +1,67 @@
+[tool.poetry]
+name = "osim-render"
+version = "0.1.0"
+description = "High-performance 3D visualization for OpenSim biomechanical models"
+authors = ["Aravind <aravind.sundararajan@elemance.com>"]
+readme = "README.md"
+packages = [
+    {include = "osim_render"}
+]
+
+[tool.poetry.scripts]
+osim_render = "main:main"
+
+[tool.poetry.dependencies]
+python = ">=3.11.9,<3.13"
+pyside6 = "^6.8.2.1"
+shiboken6 = "^6.9.1"
+vtk = "^9.2"
+pyopengl = "^3.1.9"
+qtawesome = "^1.4.0"
+matplotlib = "3.7.1"
+numpy = ">=1.23.3,<2.0.0"
+scipy = "^1.15.3"
+platformdirs = "3.5.1"
+pywin32 = {version = "^310", markers = "sys_platform == 'win32'"}
+imageio = {extras = ["ffmpeg"], version = "^2.37.3"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+pytest-qt = "^4.4.0"
+mypy = "^1.7.0"
+ruff = "^0.1.0"
+dotenv = "^0.9.9"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["tests/scripts"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+# First-party code only. Vendored trees, generated SWIG wrappers, build output,
+# bundled resources, and hand-written type stubs are not ours to lint.
+extend-exclude = [
+    "vendor",
+    "build",
+    "resources",
+    "stubs",
+    "osim_render/_osim_render_native.py",
+    "osim_render/_osim_render.py",
+]
+
+[tool.ruff.lint]
+# Principle-aligned rules: pyflakes/pycodestyle correctness (E/F/W, incl. E731
+# lambda-assignment), bugbear (B), comprehension hygiene (C4), and simplify
+# (SIM). Line length (E501) is not enforced as a design rule.
+select = ["E", "F", "W", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Import-availability validation script: these imports exist precisely to prove
+# the modules load, so they read as "unused" to pyflakes.
+"tests/validate_wrap_visualization.py" = ["F401"]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

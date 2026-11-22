@@ -1,0 +1,6 @@
+from ..core import Format as Format
+
+def load_lib(): ...
+
+class FitsFormat(Format):
+    class Reader(Format.Reader): ...

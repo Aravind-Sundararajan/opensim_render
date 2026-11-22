@@ -1,0 +1,19 @@
+from ..core import Format as Format, image_as_uint as image_as_uint
+from ._freeimage import IO_FLAGS as IO_FLAGS, fi as fi
+from .freeimage import FreeimageFormat as FreeimageFormat
+from _typeshed import Incomplete
+
+logger: Incomplete
+
+class FreeimageMulti(FreeimageFormat):
+    class Reader(Format.Reader): ...
+    class Writer(FreeimageFormat.Writer): ...
+
+class MngFormat(FreeimageMulti): ...
+
+class IcoFormat(FreeimageMulti):
+    class Reader(FreeimageMulti.Reader): ...
+
+class GifFormat(FreeimageMulti):
+    class Reader(FreeimageMulti.Reader): ...
+    class Writer(FreeimageMulti.Writer): ...

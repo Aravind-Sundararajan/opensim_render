@@ -1,0 +1,15 @@
+name: osim-render
+channels:
+  - opensim-org
+  - conda-forge
+dependencies:
+  - python=3.11
+  - opensim-org::opensim
+  - numpy>=1.23.3,<2.0.0
+  # Required to build the optional _osim_render C++ extension (see tools/devtool.bat build).
+  # A host C++ compiler is still needed: MSVC (Visual Studio 2022 Build Tools) on Windows.
+  - cmake>=3.18
+  - swig>=4.0
+  - pip
+  - pip:
+    - poetry
