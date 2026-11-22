@@ -2,63 +2,6 @@
 
 A visualization and animation tool for OpenSim biomechanical models in Python.
 
-## Project Structure
-
-```
-osim_render/
-├── main.py                    # Application entry point
-├── pyproject.toml            # Python project configuration
-├── environment.yml           # Conda environment specification
-├── mypy.ini                  # Type checking configuration
-│
-├── osim_render/              # Main application package
-│   ├── api/                  # Core API layer
-│   │   ├── loaders/         # Model and motion data loaders
-│   │   ├── managers/        # Event bus, model, settings management
-│   │   ├── rendering/       # VTK visualization components
-│   │   ├── animation/       # Animation system and tweens
-│   │   ├── geometry/        # Geometry data structures
-│   │   └── logging.py       # Logging configuration
-│   │
-│   └── ui/                   # User interface (Qt-based)
-│       ├── main_window/     # Main window package (window, menubar, toolbars)
-│       ├── panels/          # UI panels and widgets
-│       ├── protocols.py      # UI type protocols
-│       ├── vtk_widget.py     # VTK render widget
-│       └── widgets/         # Reusable UI components
-│
-├── src/                      # C++ sources for the optional mesh-loader extension
-├── osim_render.i             # SWIG interface for that extension
-├── CMakeLists.txt            # CMake build configuration
-│
-├── stubs/                    # Type stubs (opensim.pyi, _osim_render.pyi)
-│
-├── docs/                     # Documentation
-│   ├── ARCHITECTURE.md      # System architecture
-│   ├── CLI.md               # Command-line interface
-│   └── [other documentation]
-│
-├── AGENTS.md                 # Architecture guidelines (required reading)
-│
-├── scripts/                  # Batch render / offline animation scripts
-├── tools/                    # Build and development tools
-│   ├── build.ps1            # Windows build script (PowerShell)
-│   └── devtool.bat          # Development tool wrapper (cmd)
-│
-├── resources/                # Bundled OpenSim example models and geometry
-│
-├── vendor/                   # Third-party checkouts (not in version control)
-│   └── opensim-gui/
-│       └── opensim-models/  # Only vendored tree the code reads: Geometry/ meshes
-│
-├── animation_scripts/        # User animation scripts (run in a sandboxed namespace)
-│
-└── build/                    # Build artifacts (not in version control)
-```
-
-Paths in `.gitignore` — `vendor/`, `models/`, `build/`, `renders/` — are not checked
-in and must be created locally where needed.
-
 ## Quick Start
 
 ### Prerequisites
