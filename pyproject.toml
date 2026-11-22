@@ -2,7 +2,7 @@
 name = "osim-render"
 version = "0.1.0"
 description = "High-performance 3D visualization for OpenSim biomechanical models"
-authors = ["Aravind <aravind.sundararajan@elemance.com>"]
+authors = ["Aravind-Sundararajan <Aravind.Sundararajan@protonmail.com>"]
 readme = "README.md"
 packages = [
     {include = "osim_render"}
