@@ -158,7 +158,3 @@ timeline = scene.build_timeline()
 ## License
 
 The Software is MIT licensed, See LICENSE for further details.
-
-## Contributing
-
-See AGENTS.md for architectural requirements and code quality standards.
