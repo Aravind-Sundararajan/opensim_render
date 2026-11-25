@@ -16,6 +16,7 @@ logger = get_logger_for(__name__)
 _MSVC_RUNTIME_DLLS = ("vcruntime140.dll", "vcruntime140_1.dll", "msvcp140.dll")
 
 
+
 def _missing_msvc_runtime_dlls() -> list[str]:
     """Return MSVC runtime DLLs that Windows cannot load (PySide6 requires them)."""
     if sys.platform != "win32":
@@ -114,6 +115,10 @@ except ImportError as qt_error:
 # Suppress VTK warnings early
 try:
     import vtk
+
+    import vtkmodules.qt
+
+    vtkmodules.qt.QVTKRWIBase = "QOpenGLWidget"
 
     vtk.vtkObject.GlobalWarningDisplayOff()
     vtk.vtkOutputWindow.SetGlobalWarningDisplay(0)
